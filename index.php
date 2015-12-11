@@ -17,7 +17,19 @@ $db = new SQLite3('prestiolus.db');
 $query="select * from prestiolus;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
+   	echo "<tr><td>";
    	echo $roba['description'];
+   	echo "</td><td>";
+   	echo $roba['name'];
+   	echo "</td><td>";
+   	echo $roba['dateout'];
+   	echo "</td><td>";
+   	if($roba['datereturn'] == ""){
+   		echo "<a href=\"back.php?id=" . $roba['id'] . "\"><img src=\"back.png\" alt=\"Come Back\" /></a>";
+   	}else{
+   		echo $roba['datereturn'];
+   	}
+   	echo "</td></tr>";
 }
 ?>
 	</tr>
