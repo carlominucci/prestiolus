@@ -17,7 +17,7 @@
 	</tr>
 <?php
 $db = new SQLite3('prestiolus.db');
-$query="select * from prestiolus;";
+$query="SELECT * FROM prestiolus ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
    	echo "<tr><td>";
@@ -40,7 +40,7 @@ while ($roba = $results->fetchArray()){
 		<td><textarea name="description" rows="3" cols="30"></textarea></td>
 		<td><input type=text name="name" /></td>
 		<td><input type="image" src="out.png" /></td>
-		<td></td>
+		<td>&nbsp;</td>
 		</form>
 	</tr>
 </body>

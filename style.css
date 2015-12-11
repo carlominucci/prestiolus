@@ -27,6 +27,12 @@ a{
 	border: none;
 	text-decoration: none;
 }
+
+td:hover{
+	background-color: #ddd;
+	box-shadow:3px 3px 1px #888;
+
+}
 .titolo{
 	text-align: right;
 	font-size: 40px;
