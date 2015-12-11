@@ -14,17 +14,19 @@
 	</tr>
 <?php
 $db = new SQLite3('prestiolus.db');
-$query="SELECT * FROM prestiti";
+$query="select * from prestiolus;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
    	echo $roba['description'];
 }
 ?>
 	</tr>
+		<form method="post" action="add.php">
 		<td><input type="text" name="description" /></td>
 		<td><input type="text" name="name" /></td>
-		<td><img src="out.png" alt="out" /></td>
+		<td><input type="image" src="out.png" /></td>
 		<td></td>
+		</form>
 	</tr>
 </body>
 </html>
