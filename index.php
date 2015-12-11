@@ -5,7 +5,10 @@
 	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<table>
+	<div class="titolo">
+		Gestione Prestiti
+	</div>
+<table class="tabella">
 	<tr>
 		<th>Descrizione</th>
 		<th>Nome</th>
@@ -34,8 +37,8 @@ while ($roba = $results->fetchArray()){
 ?>
 	</tr>
 		<form method="post" action="add.php">
-		<td><input type="text" name="description" /></td>
-		<td><input type="text" name="name" /></td>
+		<td><textarea name="description" rows="3" cols="30"></textarea></td>
+		<td><input type=text name="name" /></td>
 		<td><input type="image" src="out.png" /></td>
 		<td></td>
 		</form>
