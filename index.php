@@ -15,6 +15,14 @@
 		<th>Data uscita</th>
 		<th>Data rientro</th>
 	</tr>
+	</tr>
+		<form method="post" action="add.php">
+		<td><textarea name="description" rows="3" cols="30"></textarea></td>
+		<td><input type=text name="name" /></td>
+		<td><input type="image" src="out.png" /></td>
+		<td>&nbsp;</td>
+		</form>
+	</tr>
 <?php
 $db = new SQLite3('prestiolus.db');
 $query="SELECT * FROM prestiolus WHERE datereturn IS NULL ORDER BY dateout ASC;";
@@ -44,13 +52,6 @@ while ($roba = $results->fetchArray()){
    	echo "</td></tr>";
 }
 ?>
-	</tr>
-		<form method="post" action="add.php">
-		<td><textarea name="description" rows="3" cols="30"></textarea></td>
-		<td><input type=text name="name" /></td>
-		<td><input type="image" src="out.png" /></td>
-		<td>&nbsp;</td>
-		</form>
-	</tr>
+</table>
 </body>
 </html>
