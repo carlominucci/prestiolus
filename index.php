@@ -8,7 +8,7 @@
 	<div class="titolo">
 		Gestione Prestiti
 	</div>
-<table class="tabella">
+<table>
 	<tr>
 		<th>Descrizione</th>
 		<th>Nome</th>
@@ -17,7 +17,20 @@
 	</tr>
 <?php
 $db = new SQLite3('prestiolus.db');
-$query="SELECT * FROM prestiolus ORDER BY dateout ASC;";
+$query="SELECT * FROM prestiolus WHERE datereturn IS NULL ORDER BY dateout ASC;";
+$results = $db->query($query);
+while ($roba = $results->fetchArray()){
+   	echo "<tr class=\"out\"><td>";
+   	echo $roba['description'];
+   	echo "</td><td>";
+   	echo $roba['name'];
+   	echo "</td><td>";
+   	echo $roba['dateout'];
+   	echo "</td><td>";
+   echo "<a href=\"back.php?id=" . $roba['id'] . "\"><img src=\"back.png\" alt=\"Come Back\" /></a>";
+   	echo "</td></tr>";
+}
+$query="SELECT * FROM prestiolus WHERE datereturn IS NOT NULL ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
    	echo "<tr><td>";
@@ -27,11 +40,7 @@ while ($roba = $results->fetchArray()){
    	echo "</td><td>";
    	echo $roba['dateout'];
    	echo "</td><td>";
-   	if($roba['datereturn'] == ""){
-   		echo "<a href=\"back.php?id=" . $roba['id'] . "\"><img src=\"back.png\" alt=\"Come Back\" /></a>";
-   	}else{
-   		echo $roba['datereturn'];
-   	}
+   	echo $roba['datereturn'];
    	echo "</td></tr>";
 }
 ?>

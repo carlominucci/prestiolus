@@ -1,13 +1,14 @@
-body{
+html, body{
     font-family: "serif";
     background-color: #fff;
     margin: 0;	
     padding: 0;
 	text-align: left;
+	height: 100%;
 }
 table{
 	border-collapse: collapse;
-
+	width: 100%;
 }
 th{
 	background-color: #FFAB91;
@@ -40,7 +41,8 @@ td:hover{
 	background-color: #FF5722;
 	padding: 20px;
 }
-.tabella{
-	text-align: left;
-	wight: 100%;
+
+
+.out{
+	background-color: #FBE9E7;
 }
