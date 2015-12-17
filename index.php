@@ -28,20 +28,20 @@ $db = new SQLite3('prestiolus.db');
 $query="SELECT * FROM prestiolus WHERE datereturn IS NULL ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
-   	echo "<tr class=\"out\"><td>";
+   	echo "<tr class=\"out\"><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a><b>";
    	echo $roba['description'];
-   	echo "</td><td>";
+   	echo "</b></td><td><b>";
    	echo $roba['name'];
-   	echo "</td><td>";
+   	echo "</b></td><td><b>";
    	echo $roba['dateout'];
-   	echo "</td><td>";
-   echo "<a href=\"back.php?id=" . $roba['id'] . "\"><img src=\"back.png\" alt=\"Come Back\" /></a>";
+   	echo "</b></td><td>";
+   	echo "<a href=\"back.php?id=" . $roba['id'] . "\"><img src=\"back.png\" alt=\"Come Back\" /></a>";
    	echo "</td></tr>";
 }
 $query="SELECT * FROM prestiolus WHERE datereturn IS NOT NULL ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
-   	echo "<tr><td>";
+   	echo "<tr><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a>";
    	echo $roba['description'];
    	echo "</td><td>";
    	echo $roba['name'];
