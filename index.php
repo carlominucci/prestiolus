@@ -28,7 +28,7 @@ $db = new SQLite3('prestiolus.db');
 $query="SELECT * FROM prestiolus WHERE datereturn IS NULL ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
-   	echo "<tr class=\"out\"><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a><b>";
+   	echo "<tr class=\"out\"><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a><b> ";
    	echo $roba['description'];
    	echo "</b></td><td><b>";
    	echo $roba['name'];
@@ -41,7 +41,7 @@ while ($roba = $results->fetchArray()){
 $query="SELECT * FROM prestiolus WHERE datereturn IS NOT NULL ORDER BY dateout ASC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
-   	echo "<tr><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a>";
+   	echo "<tr><td><a href=\"del.php?id=" . $roba['id'] . "\">[x]</a> ";
    	echo $roba['description'];
    	echo "</td><td>";
    	echo $roba['name'];
