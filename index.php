@@ -56,8 +56,11 @@ while ($roba = $results->fetchArray()){
 	$secondi = strtotime($roba['datereturn'])-strtotime($roba['dateout']);
         /* (86400 = 24h*60min*60sec) */
         $giorni = abs(intval($secondi / 86400));
+	if($giorni > 0){ $secondi = $secondi - 86400;}
 	$ore = abs(intval($secondi / 3600));
+	if($ore > 0){ $secondi = $secondi - 3600; }
 	$minuti = abs(intval($secondi / 60));
+	if($minuti > 0){ $secondi = $secondi - ($minuti*60);}
 	echo $giorni . " giorni, ". $ore . " ore, " . $minuti . " minuti, " . $secondi . " secondi.";
    	echo "</td></tr>";
 }
