@@ -41,7 +41,7 @@ while ($roba = $results->fetchArray()){
 	echo "</td><td>";
    	echo "</td></tr>";
 }
-$query="SELECT * FROM prestiolus WHERE datereturn IS NOT NULL ORDER BY dateout ASC;";
+$query="SELECT * FROM prestiolus WHERE datereturn IS NOT NULL ORDER BY dateout DESC;";
 $results = $db->query($query);
 while ($roba = $results->fetchArray()){
    	echo "<tr><td>[<a href=\"del.php?id=" . $roba['id'] . "\">x</a>] ";
@@ -51,7 +51,7 @@ while ($roba = $results->fetchArray()){
    	echo "</td><td>";
    	echo $roba['dateout'];
    	echo "</td><td>";
-   	echo $roba['datereturn'] ."|";
+   	echo $roba['datereturn'];
 	echo "</td><td>";
 	$secondi = strtotime($roba['datereturn'])-strtotime($roba['dateout']);
         /* (86400 = 24h*60min*60sec) */
@@ -60,6 +60,7 @@ while ($roba = $results->fetchArray()){
 	$ore = abs(intval($secondi / 3600));
 	if($ore > 0){ $secondi = $secondi - 3600; }
 	$minuti = abs(intval($secondi / 60));
+	//if($ore > 0){ $minuti = $minuti - (60*$ore); }
 	if($minuti > 0){ $secondi = $secondi - ($minuti*60);}
 	echo $giorni . " giorni, ". $ore . " ore, " . $minuti . " minuti, " . $secondi . " secondi.";
    	echo "</td></tr>";
